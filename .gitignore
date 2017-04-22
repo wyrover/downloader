@@ -334,7 +334,7 @@ vs-chromium-project.txt
 /third_party/freetype2/src
 /third_party/gles2_conform
 /third_party/gnu_binutils/
-/third_party/google_appengine_cloudstorage
+#/third_party/google_appengine_cloudstorage
 /third_party/google_toolbox_for_mac/src
 /third_party/googlemac
 /third_party/gperf
@@ -373,7 +373,7 @@ vs-chromium-project.txt
 /third_party/mingw-w64
 /third_party/minigbm/src
 /third_party/mkl
-/third_party/mocha
+#/third_party/mocha
 /third_party/mockito/src
 /third_party/nacl_sdk_binaries/
 /third_party/netty-tcnative/src
@@ -415,11 +415,11 @@ vs-chromium-project.txt
 /third_party/syzygy/binaries
 /third_party/tsan/
 /third_party/ub-uiautomator/lib
-/third_party/usb_ids
+#/third_party/usb_ids
 /third_party/usrsctp/usrsctplib
 /third_party/v8-i18n
 /third_party/valgrind
-/third_party/v4l2capture
+#/third_party/v4l2capture
 /third_party/wayland/src
 /third_party/wayland-protocols/src
 /third_party/wds/src
