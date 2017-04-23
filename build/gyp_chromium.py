@@ -247,7 +247,8 @@ def main():
       # path separators even on Windows due to the use of shlex.split().
       args.extend(shlex.split(gyp_file))
     else:
-      args.append(os.path.join(script_dir, 'all.gyp'))
+      args.append(os.path.join(chrome_src, 'downloader', 'downloader.gyp'))
+      #args.append(os.path.join(script_dir, 'all.gyp'))
 
   supplemental_includes = GetSupplementalFiles()
   gyp_vars_dict = GetGypVars(supplemental_includes)
