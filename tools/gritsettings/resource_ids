@@ -307,4 +307,8 @@
   },
 
   # Resource ids starting at 31000 are reserved for projects built on Chromium.
+
+  "downloader/downloader_images_resources.grd": {
+    "includes": [31000],
+  },
 }

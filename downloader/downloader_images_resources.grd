@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<grit latest_public_release="0" current_release="1">
+  <outputs>
+    <output filename="grit/downloader_images_resources.h" type="rc_header">
+      <emit emit_type='prepend'></emit>
+    </output>
+    <output filename="grit/downloader_images_resources_map.cc" type="resource_file_map_source" />
+    <output filename="grit/downloader_images_resources_map.h" type="resource_map_header" />
+    <output filename="downloader_images_resources.pak" type="data_package" />
+  </outputs>
+  <release seq="1">
+    <includes fallback_to_low_resolution="true">
+      <include type="BINDATA" name="IDR_WANGPP_IMAGE_GOOGLE" file="resources/images/google.png" />
+    </includes>
+  </release>
+</grit>
