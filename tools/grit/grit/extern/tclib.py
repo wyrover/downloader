@@ -12,6 +12,8 @@
 # the Chrome build process.
 
 import exceptions
+import inspect
+import os
 
 from grit.extern import FP
 
@@ -42,7 +44,17 @@ def GenerateMessageId(message, meaning=''):
     else:
       fp = fp2 + (fp << 1)
   # To avoid negative ids we strip the high-order bit
-  return str(fp & 0x7fffffffffffffffL)
+  #return str(fp & 0x7fffffffffffffffL)
+  fpid = str(fp & 0x7fffffffffffffffL)
+
+  path = os.path.dirname(inspect.stack()[1][1])
+  path = os.path.dirname(os.path.dirname(os.path.dirname(path)))
+  filename = "translation_log.txt"
+  fp3 = open(os.path.join(path,filename), 'a')
+  fp3.write('message=' + message + ', id=' + fpid + "\r\n")
+  fp3.close()
+
+  return fpid
 
 # -------------------------------------------------------------------------
 # The MessageTranslationError class is used to signal tclib-specific errors.
