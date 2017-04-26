@@ -14,8 +14,11 @@
 #include "build/build_config.h"
 #include "downloader/downloader_window.h"
 #include "ui/base/ime/input_method_initializer.h"
+// #include "ui/base/material_design/material_design_controller.h"
+#include "ui/base/l10n/l10n_util.h"
 #include "ui/base/resource/resource_bundle.h"
 #include "ui/base/ui_base_paths.h"
+// #include "ui/base/ui_base_switches.h"
 #include "ui/compositor/test/in_process_context_factory.h"
 #include "ui/gfx/screen.h"
 #include "ui/gl/gl_surface.h"
@@ -38,6 +41,8 @@
 #if defined(USE_X11)
 #include "ui/gfx/x/x11_connection.h"  // nogncheck
 #endif
+
+#include "chrome/common/chrome_paths.h"
 
 int main(int argc, char** argv) {
 #if defined(OS_WIN)
@@ -68,12 +73,13 @@ int main(int argc, char** argv) {
 
   ui::RegisterPathProvider();
 
-  base::FilePath resources_pak_path, dir_path;
+  ui::ResourceBundle::InitSharedInstanceWithLocale("", NULL);
+  base::FilePath dir_path, resources_pack_path;
   CHECK(PathService::Get(base::DIR_EXE, &dir_path));
-  resources_pak_path = dir_path.AppendASCII("downloader_resources.pak");
-  LOG(ERROR) << resources_pak_path.value();
-  CHECK(base::PathExists(resources_pak_path));
-  ui::ResourceBundle::InitSharedInstanceWithPakPath(resources_pak_path);
+  resources_pack_path = dir_path.AppendASCII("downloader_resources.pak");
+  CHECK(base::PathExists(resources_pack_path));
+  ui::ResourceBundle::GetSharedInstance().AddDataPackFromPath(
+      resources_pack_path, ui::ScaleFactor::SCALE_FACTOR_NONE);
 
   base::PowerMonitor power_monitor(make_scoped_ptr(
       new base::PowerMonitorDeviceSource));

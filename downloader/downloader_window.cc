@@ -2,6 +2,8 @@
 
 #include "base/strings/utf_string_conversions.h"
 #include "downloader/grit/downloader_images_resources.h"
+#include "downloader/grit/downloader_strings.h"
+#include "ui/base/l10n/l10n_util.h"
 #include "ui/base/resource/resource_bundle.h"
 #include "ui/gfx/canvas.h"
 #include "ui/gfx/geometry/size.h"
@@ -39,8 +41,8 @@ void DownloaderWindow::Layout() {
 
   image_button_->SetImage(
       views::Button::ButtonState::STATE_NORMAL,
-      rb.GetNativeImageNamed(IDR_WANGPP_IMAGE_GOOGLE).ToImageSkia());
-  image_button_->SetBounds(0, 0, 50, 50);
+      rb.GetNativeImageNamed(IDR_DOWNLOADER_IMAGE_LOGO).ToImageSkia());
+  image_button_->SetBounds(0, 0, 100, 100);
 }
 
 gfx::Size DownloaderWindow::GetPreferredSize() const {
@@ -48,11 +50,12 @@ gfx::Size DownloaderWindow::GetPreferredSize() const {
     // ps.set_width(ps.width() + 200);
     // ps.set_height(ps.height() + 200);
     // return ps;
-  return gfx::Size(400, 300);
+  return gfx::Size(800, 600);
 }
 
 base::string16 DownloaderWindow::GetWindowTitle() const {
-  return base::ASCIIToUTF16("Hello World Window");
+  // return base::ASCIIToUTF16("Hello World Window");
+  return l10n_util::GetStringUTF16(IDS_DOWNLOADER_NAME);
 }
 
 bool DownloaderWindow::CanResize() const {

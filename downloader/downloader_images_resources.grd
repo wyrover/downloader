@@ -10,6 +10,7 @@
   </outputs>
   <release seq="1">
     <includes fallback_to_low_resolution="true">
+      <include type="BINDATA" name="IDR_DOWNLOADER_IMAGE_LOGO" file="resources/images/downloader.png" />
       <include type="BINDATA" name="IDR_WANGPP_IMAGE_GOOGLE" file="resources/images/google.png" />
     </includes>
   </release>

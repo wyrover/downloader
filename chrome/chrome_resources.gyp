@@ -329,14 +329,14 @@
             '-S', 'chrome/browser/metrics/variations/ui_string_overrider_factory.cc',
             '-H', 'chrome/browser/metrics/variations/ui_string_overrider_factory.h',
             '<(grit_out_dir)/grit/chromium_strings.h',
-	    '<(grit_out_dir)/grit/generated_resources.h',
+	          '<(grit_out_dir)/grit/generated_resources.h',
             '<(grit_out_dir)/grit/google_chrome_strings.h',
             '<(grit_out_dir)/grit/settings_chromium_strings.h',
             '<(grit_out_dir)/grit/settings_google_chrome_strings.h',
             '<(grit_out_dir)/grit/settings_strings.h',
             '<(SHARED_INTERMEDIATE_DIR)/components/strings/grit/components_chromium_strings.h',
             '<(SHARED_INTERMEDIATE_DIR)/components/strings/grit/components_google_chrome_strings.h',
-	    '<(SHARED_INTERMEDIATE_DIR)/components/strings/grit/components_strings.h'
+	          '<(SHARED_INTERMEDIATE_DIR)/components/strings/grit/components_strings.h'
           ],
           'message': 'Generating generated resources map.',
         }

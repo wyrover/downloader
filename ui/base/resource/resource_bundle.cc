@@ -172,6 +172,16 @@ std::string ResourceBundle::InitSharedInstanceWithLocale(
 }
 
 // static
+std::string ResourceBundle::InitSharedInstanceWithLocale(
+    const std::string& pref_locale,
+    Delegate* delegate) {
+  InitSharedInstance(delegate);
+  std::string result = g_shared_instance_->LoadLocaleResources(pref_locale);
+  g_shared_instance_->InitDefaultFontList();
+  return result;
+}
+
+// static
 void ResourceBundle::InitSharedInstanceWithPakFileRegion(
     base::File pak_file,
     const base::MemoryMappedFile::Region& region) {

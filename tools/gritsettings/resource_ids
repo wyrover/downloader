@@ -311,4 +311,7 @@
   "downloader/downloader_images_resources.grd": {
     "includes": [31000],
   },
+  "downloader/downloader_strings.grd": {
+    "messages": [32000],
+  },
 }

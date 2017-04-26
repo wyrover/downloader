@@ -47,7 +47,6 @@
         '../ui/gfx/gfx.gyp:gfx',
         '../ui/gfx/gfx.gyp:gfx_geometry',
         '../ui/gfx/gfx.gyp:gfx_vector_icons',
-        # '../ui/resources/ui_resources.gyp:ui_resources',
       ],
     },  # target_name: downloader_lib
     {
@@ -65,6 +64,13 @@
           },
           'includes': [ '../build/grit_action.gypi' ],
         },
+        {
+          'action_name': 'downloader_strings',
+          'variables': {
+            'grit_grd_file': 'downloader_strings.grd',
+          },
+          'includes': [ '../build/grit_action.gypi' ],
+        },
       ],
     },  # target_name: downloader_images
     {
@@ -72,38 +78,45 @@
       'type': 'none',
       'dependencies': [
         'downloader_resources',
+        '../ui/app_list/resources/app_list_resources.gyp:app_list_resources',
         '../ui/resources/ui_resources.gyp:ui_resources',
       ],
       'actions': [
-          {
+        {
           'action_name': 'repack_downloader_resorces',
           'variables': {
             'pak_inputs': [
               '<(SHARED_INTERMEDIATE_DIR)/downloader/downloader_images_resources.pak',
+              '<(SHARED_INTERMEDIATE_DIR)/downloader/downloader_strings.pak',
               '<(SHARED_INTERMEDIATE_DIR)/ui/resources/ui_resources_100_percent.pak',
             ],
             'pak_output': '<(PRODUCT_DIR)/downloader_resources.pak',
             'conditions': [
-              ['chromeos==1', {
-                'pak_inputs': [
-                  '<(SHARED_INTERMEDIATE_DIR)/ui/chromeos/resources/ui_chromeos_resources_100_percent.pak',
-                  '<(SHARED_INTERMEDIATE_DIR)/ui/chromeos/strings/ui_chromeos_strings_en-US.pak',
-                ],
-              }],
-              ['toolkit_views==1', {
-                'pak_inputs': [
-                  '<(SHARED_INTERMEDIATE_DIR)/blink/public/resources/blink_resources.pak',
-                  '<(SHARED_INTERMEDIATE_DIR)/ui/views/resources/views_resources_100_percent.pak',
-                ]
-              }],
-              ['enable_app_list==1', {
-                'pak_inputs': [
-                  '<(SHARED_INTERMEDIATE_DIR)/ui/app_list/resources/app_list_resources_100_percent.pak',
-                ],
-              }],
+              # ['enable_app_list==1', {
+              #   'pak_inputs': [
+              #     '<(SHARED_INTERMEDIATE_DIR)/ui/app_list/resources/app_list_resources_100_percent.pak',
+              #   ],
+              # }],
             ],
           },
           'includes': [ '../build/repack_action.gypi' ],
+        },
+        {
+          'action_name': 'repack_locales_pack',
+          'variables': {
+            'grit_out_dir': '<(SHARED_INTERMEDIATE_DIR)/downloader',
+            'pak_locales': '<(locales)',
+          },
+          'includes': [ 'downloader_repack_locales.gypi' ],
+        },
+      ],
+      'copies': [
+        {
+          'destination': '<(PRODUCT_DIR)/locales',
+          'files': [
+            '<(SHARED_INTERMEDIATE_DIR)/repack/en-US.pak',
+            '<(SHARED_INTERMEDIATE_DIR)/repack/zh-CN.pak',
+          ],
         },
       ],
     },  # target_name: repack_downloader_resorces

@@ -131,6 +131,10 @@ class UI_BASE_EXPORT ResourceBundle {
       Delegate* delegate,
       LoadResources load_resources);
 
+  static std::string InitSharedInstanceWithLocale(
+      const std::string& pref_locale,
+      Delegate* delegate);
+
   // Initialize the ResourceBundle using the given file region. If |region| is
   // MemoryMappedFile::Region::kWholeFile, the entire |pak_file| is used.
   // This allows the use of this function in a sandbox without local file
