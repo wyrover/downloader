@@ -8,3 +8,10 @@ cd downloader
 gclient config https://github.com/wpp2014/downloader.git --name=src
 gclient sync
 ```
+
+## Build
+```
+cd src
+./build/gyp_chromium downloader/downloader.gyp
+ninja -C out/Release downloader
+```
