@@ -14,11 +14,9 @@
 #include "build/build_config.h"
 #include "downloader/downloader_window.h"
 #include "ui/base/ime/input_method_initializer.h"
-// #include "ui/base/material_design/material_design_controller.h"
 #include "ui/base/l10n/l10n_util.h"
 #include "ui/base/resource/resource_bundle.h"
 #include "ui/base/ui_base_paths.h"
-// #include "ui/base/ui_base_switches.h"
 #include "ui/compositor/test/in_process_context_factory.h"
 #include "ui/gfx/screen.h"
 #include "ui/gl/gl_surface.h"
@@ -106,7 +104,8 @@ int main(int argc, char** argv) {
 
     {
       views::Widget* window =
-          views::Widget::CreateWindowWithParent(new DownloaderWindow, NULL);
+          views::Widget::CreateWindowWithParent(
+              new downloader::DownloaderWindow, NULL);
       window->Show();
     }
 

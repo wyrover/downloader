@@ -21,6 +21,12 @@ class Label;
 class View;
 }
 
+namespace downloader {
+
+class MainContents;
+class MenuView;
+class ToolbarView;
+
 class DOWNLOADER_EXPORT DownloaderWindow : public views::WidgetDelegateView
                                          , public views::ButtonListener {
 public:
@@ -45,10 +51,13 @@ private:
   // Overridden from views::ButtonListener:
   void ButtonPressed(views::Button* sender, const ui::Event& event) override;
 
-  views::Label* label_;
-  views::ImageButton* image_button_;
+  MainContents* main_contents_;
+  MenuView* menu_view_;
+  ToolbarView* toolbar_view_;
 
   DISALLOW_COPY_AND_ASSIGN(DownloaderWindow);
 };
+
+}  // namespace downloader
 
 #endif  // DOWNLOADER_DOWNLOADER_WINDOW_H_

@@ -29,6 +29,12 @@
         'downloader_export.h',
         'downloader_window.cc',
         'downloader_window.h',
+        'main_contents.cc',
+        'main_contents.h',
+        'menu_view.cc',
+        'menu_view.h',
+        'toolbar_view.cc',
+        'toolbar_view.h',
       ],
       'include_dirs': [
         '<(DEPTH)',

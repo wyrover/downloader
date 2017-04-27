@@ -1,8 +1,10 @@
 #include "downloader/downloader_window.h"
 
-#include "base/strings/utf_string_conversions.h"
-#include "downloader/grit/downloader_images_resources.h"
+// #include "base/strings/utf_string_conversions.h"
 #include "downloader/grit/downloader_strings.h"
+#include "downloader/main_contents.h"
+#include "downloader/menu_view.h"
+#include "downloader/toolbar_view.h"
 #include "ui/base/l10n/l10n_util.h"
 #include "ui/base/resource/resource_bundle.h"
 #include "ui/gfx/canvas.h"
@@ -11,22 +13,28 @@
 #include "ui/views/controls/label.h"
 #include "ui/views/view.h"
 
+namespace downloader {
+
+const int MenuViewWidth = 220;
+const int ToolbarViewHeight = 80;
+
 DownloaderWindow::DownloaderWindow()
-    : label_(NULL)
-    , image_button_(NULL) {
+    : main_contents_(NULL)
+    , menu_view_(NULL)
+    , toolbar_view_(NULL) {
   Init();
 }
 
 DownloaderWindow::~DownloaderWindow() {
-
 }
 
 void DownloaderWindow::Init() {
-  label_ = new views::Label(base::ASCIIToUTF16("Hello, World!"));
-  image_button_ = new views::ImageButton(this);
-
-  AddChildView(label_);
-  AddChildView(image_button_);
+  main_contents_ = new MainContents;
+  menu_view_ = new MenuView;
+  toolbar_view_ = new ToolbarView;
+  AddChildView(main_contents_);
+  AddChildView(menu_view_);
+  AddChildView(toolbar_view_);
 }
 
 void DownloaderWindow::OnPaint(gfx::Canvas* canvas) {
@@ -34,27 +42,21 @@ void DownloaderWindow::OnPaint(gfx::Canvas* canvas) {
 }
 
 void DownloaderWindow::Layout() {
-  ui::ResourceBundle& rb = ui::ResourceBundle::GetSharedInstance();
-
-  gfx::Size ps = label_->GetPreferredSize();
-  label_->SetBounds((width() - ps.width()) / 2, (height() - ps.height()) / 2, ps.width(), ps.height());
-
-  image_button_->SetImage(
-      views::Button::ButtonState::STATE_NORMAL,
-      rb.GetNativeImageNamed(IDR_DOWNLOADER_IMAGE_LOGO).ToImageSkia());
-  image_button_->SetBounds(0, 0, 100, 100);
+  int width = GetLocalBounds().width();
+  int height = GetLocalBounds().height();
+  main_contents_->SetBounds(
+      MenuViewWidth, ToolbarViewHeight,
+      width - MenuViewWidth, height - ToolbarViewHeight);
+  menu_view_->SetBounds(0, 0, MenuViewWidth, height);
+  toolbar_view_->SetBounds(
+      MenuViewWidth, 0, width - MenuViewWidth, ToolbarViewHeight);
 }
 
 gfx::Size DownloaderWindow::GetPreferredSize() const {
-    // gfx::Size ps = label_->GetPreferredSize();
-    // ps.set_width(ps.width() + 200);
-    // ps.set_height(ps.height() + 200);
-    // return ps;
   return gfx::Size(800, 600);
 }
 
 base::string16 DownloaderWindow::GetWindowTitle() const {
-  // return base::ASCIIToUTF16("Hello World Window");
   return l10n_util::GetStringUTF16(IDS_DOWNLOADER_NAME);
 }
 
@@ -74,6 +76,8 @@ void DownloaderWindow::WindowClosing() {
   base::MessageLoop::current()->QuitWhenIdle();
 }
 
-void DownloaderWindow::ButtonPressed(views::Button* sender, const ui::Event& event) {
-
+void DownloaderWindow::ButtonPressed(
+    views::Button* sender, const ui::Event& event) {
 }
+
+}  // namespace downloader
