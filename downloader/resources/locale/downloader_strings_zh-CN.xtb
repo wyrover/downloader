@@ -2,4 +2,15 @@
 <!DOCTYPE translationbundle>
 <translationbundle lang="zh-CN">
   <translation id="1073836948738220670">下载器</translation>
+
+  <!-- tooltip text -->
+  <translation id="2839778558306251228">新建下载任务</translation>
+  <translation id="2743301740238894839">开始</translation>
+  <translation id="542607317435579055">开始全部任务</translation>
+  <translation id="1178581264944972037">暂停</translation>
+  <translation id="3364889211679245920">暂停全部任务</translation>
+  <translation id="8261506727792406068">删除</translation>
+  <translation id="131189760990310936">删除全部任务</translation>
+  <translation id="5885162333974325916">设置</translation>
+  <translation id="7649070708921625228">帮助</translation>
 </translationbundle>

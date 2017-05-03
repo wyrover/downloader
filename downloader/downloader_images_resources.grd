@@ -10,6 +10,16 @@
   </outputs>
   <release seq="1">
     <includes fallback_to_low_resolution="true">
+      <include type="BINDATA" name="IDR_DOWNLOADER_IMAGE_DELETE" file="resources/images/toolbar/delete.png" />
+      <include type="BINDATA" name="IDR_DOWNLOADER_IMAGE_DELETE_ALL" file="resources/images/toolbar/delete_all.png" />
+      <include type="BINDATA" name="IDR_DOWNLOADER_IMAGE_HELP" file="resources/images/toolbar/help.png" />
+      <include type="BINDATA" name="IDR_DOWNLOADER_IMAGE_NEW" file="resources/images/toolbar/new.png" />
+      <include type="BINDATA" name="IDR_DOWNLOADER_IMAGE_PAUSE" file="resources/images/toolbar/pause.png" />
+      <include type="BINDATA" name="IDR_DOWNLOADER_IMAGE_PAUSE_ALL" file="resources/images/toolbar/pause_all.png" />
+      <include type="BINDATA" name="IDR_DOWNLOADER_IMAGE_SETTING" file="resources/images/toolbar/setting.png" />
+      <include type="BINDATA" name="IDR_DOWNLOADER_IMAGE_START" file="resources/images/toolbar/start.png" />
+      <include type="BINDATA" name="IDR_DOWNLOADER_IMAGE_START_ALL" file="resources/images/toolbar/start_all.png" />
+
       <include type="BINDATA" name="IDR_DOWNLOADER_IMAGE_LOGO" file="resources/images/downloader.png" />
       <include type="BINDATA" name="IDR_WANGPP_IMAGE_GOOGLE" file="resources/images/google.png" />
     </includes>

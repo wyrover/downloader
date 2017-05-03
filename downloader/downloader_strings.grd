@@ -17,6 +17,35 @@
       <message name="IDS_DOWNLOADER_NAME" desc="The name of software.">
         Downloader
       </message>
+
+      <!-- tooltip text -->
+      <message name="IDS_DOWNLOADER_TOOLTIP_NEW" desc="The name of add new task.">
+        Add New Task
+      </message>
+      <message name="IDS_DOWNLOADER_TOOLTIP_START" desc="The name of start task.">
+        Start
+      </message>
+      <message name="IDS_DOWNLOADER_TOOLTIP_START_ALL" desc="The name of start all task.">
+        Start All Task
+      </message>
+      <message name="IDS_DOWNLOADER_TOOLTIP_PAUSE" desc="The name of pause task.">
+        Pause
+      </message>
+      <message name="IDS_DOWNLOADER_TOOLTIP_PAUSE_ALL" desc="The name of pause all task.">
+        Pause All Task
+      </message>
+      <message name="IDS_DOWNLOADER_TOOLTIP_DELETE" desc="The name of delete task.">
+        Delete
+      </message>
+      <message name="IDS_DOWNLOADER_TOOLTIP_DELETE_ALL" desc="The name of delete all task.">
+        Delete All Task
+      </message>
+      <message name="IDS_DOWNLOADER_TOOLTIP_SETTING" desc="The name of setting.">
+        Setting
+      </message>
+      <message name="IDS_DOWNLOADER_TOOLTIP_HELP" desc="The name of help.">
+        Help
+      </message>
     </messages>
   </release>
 </grit>

@@ -41,7 +41,6 @@ void MenuView::Init() {
 
   name_ = new views::Label(l10n_util::GetStringUTF16(IDS_DOWNLOADER_NAME));
   AddChildView(name_);
-  // name_->
 }
 
 }  // namespace downloader

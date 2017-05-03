@@ -33,6 +33,8 @@
         'main_contents.h',
         'menu_view.cc',
         'menu_view.h',
+        'toolbar_button.cc',
+        'toolbar_button.h',
         'toolbar_view.cc',
         'toolbar_view.h',
       ],

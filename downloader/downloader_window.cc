@@ -78,6 +78,7 @@ void DownloaderWindow::WindowClosing() {
 
 void DownloaderWindow::ButtonPressed(
     views::Button* sender, const ui::Event& event) {
+  LOG(ERROR) << __func__;
 }
 
 }  // namespace downloader
